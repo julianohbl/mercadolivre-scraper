@@ -11,36 +11,28 @@ Antes de executar este código, é importante garantir que você tenha as seguin
 
 Além disso, você deve ter o ChromeDriver instalado e configurado corretamente para que o Selenium funcione com o Google Chrome. Certifique-se de que o caminho do ChromeDriver esteja configurado de acordo com o seu ambiente.
 
-## Funcionamento do Código
+## Funcionalidades
 
-Aqui está uma análise passo a passo do que o código faz:
+1. **Acesso ao Site**: O script acessa a página de ofertas de celulares no Mercado Livre.
 
-1. **Importação de Bibliotecas**: O código começa importando as bibliotecas necessárias, incluindo `selenium`, `openpyxl`, e `re` (para manipulação de expressões regulares).
+2. **Coleta de Dados**: Ele extrai informações dos produtos, incluindo o título e o preço.
 
-2. **Inicialização do Selenium**: O código inicia uma instância do navegador Google Chrome utilizando o WebDriver do Selenium.
+3. **Manipulação de Cookies**: Lida com banners de consentimento de cookies, caso estejam presentes na página.
 
-3. **Navegação para a Página**: O navegador é direcionado para a página de ofertas de celulares do Mercado Livre.
+4. **Armazenamento em Excel**: Os dados coletados são armazenados em um arquivo Excel com duas colunas: "Produto" e "Preço".
 
-4. **Extração de Dados**:
-   - `titulos` recebe todos os elementos HTML que contêm os títulos dos produtos.
-   - `precos` recebe todos os elementos HTML que contêm os preços dos produtos.
-
-5. **Criação da Planilha Excel**:
-   - Um arquivo Excel é criado utilizando a biblioteca openpyxl.
-   - Uma planilha chamada 'produtos' é criada no arquivo.
-
-6. **Cabeçalho da Planilha**: São adicionados os títulos 'Produto' e 'Preço' nas células A1 e B1, respectivamente.
-
-7. **Inserção de Dados na Planilha**: O código utiliza um loop para iterar sobre os títulos e preços coletados, inserindo-os na planilha. Os preços são tratados para remover possíveis pontos de milhar, sendo convertidos em valores numéricos.
-
-8. **Salvamento da Planilha**: A planilha é salva no arquivo 'produtos.xlsx'.
+5. **Navegação em Páginas**: O scraper verifica se há mais páginas de ofertas e navega por elas até que não haja mais páginas a serem coletadas.
 
 ## Utilização
 
-Para executar o código:
+1. **Execução**: Execute o script com o comando `python app.py`. Ele iniciará o navegador, coletará dados e salvará em um arquivo Excel.
 
-1. Garanta que todas as bibliotecas necessárias estejam instaladas.
-2. Configure o ChromeDriver para o seu ambiente.
-3. Execute o código.
+2. **Personalização**: O código pode ser personalizado para coletar informações específicas ou automatizar outras tarefas no site.
+
 
 Após a execução, você terá um arquivo 'produtos.xlsx' contendo os títulos e preços dos produtos listados na página de ofertas de celulares do Mercado Livre.
+
+## Notas
+
+- Respeite os termos de serviço do Mercado Livre e evite sobrecarregar o site com solicitações excessivas.
+- Este projeto é fornecido sob a licença MIT (consulte o arquivo `LICENSE`).
