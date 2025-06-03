@@ -25,8 +25,8 @@ def click_cookie_consent(driver):
         cookie_consent_button[0].click()
 
 def scrape_data(driver, sheet_produtos):
-    titulos = driver.find_elements(By.XPATH, "//p[@class='promotion-item__title']")
-    precos = driver.find_elements(By.XPATH, "//div[@class='andes-money-amount-combo__main-container']/span[@class='andes-money-amount andes-money-amount--cents-superscript']/span[@class='andes-money-amount__fraction']")
+    titulos = driver.find_elements(By.XPATH, "//h3[@class='poly-component__title-wrapper']")
+    precos = driver.find_elements(By.XPATH, "//div[@class='poly-component__price']/div[@class='poly-price__current']/span[@class='andes-money-amount andes-money-amount--cents-superscript']/span[@class='andes-money-amount__fraction']")
 
     for titulo, preco in zip(titulos, precos):
         sheet_produtos.append([titulo.text, float(re.sub(r'[.]', '', preco.text))])
